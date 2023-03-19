@@ -4,6 +4,6 @@
             "source": "/api/:path(.*)",
             "destination": "https://meal-sharing-app-backend-production.up.railway.app/:path"
         },
-        { "source": "/(.*)", "destination": "/" }
+        { "source": "/(.*)", "destination": "/index.html" }
     ]
 }
