@@ -7,7 +7,15 @@ export default defineConfig({
 
     server: {
         proxy: {
+            proxy: {
+                '/api': {
+                    target: process.env.VITE_PROXY,
+                    changeOrigin: true,
+                },
+            },
+            /*   proxy: {
             '/api': 'https://meal-sharing-app-backend-production.up.railway.app/', // the address that u serve in the backend
+        }, */
         },
     },
 });
