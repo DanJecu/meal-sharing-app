@@ -33,7 +33,7 @@ export const MealsProvider = ({ children }) => {
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/meals');
+                const response = await fetch('/api/meals');
 
                 const json = await response.json();
                 dispatch({ type: actionTypes.SET_MEALS, payload: json });
