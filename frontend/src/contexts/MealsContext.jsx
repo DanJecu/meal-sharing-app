@@ -33,7 +33,9 @@ export const MealsProvider = ({ children }) => {
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const response = await fetch('/api/meals');
+                const response = await fetch(
+                    `${import.meta.env.VITE_APP_URL}/api/meals`
+                );
 
                 const json = await response.json();
                 dispatch({ type: actionTypes.SET_MEALS, payload: json });
