@@ -12,7 +12,11 @@ export default function MealsList() {
         (async () => {
             let res;
             if (searchQuery) {
-                res = await fetch(`/api/meals?title=${searchQuery}`);
+                res = await fetch(
+                    `${
+                        import.meta.env.VITE_APP_URL
+                    }/api/meals?title=${searchQuery}`
+                );
             } else {
                 res = await fetch('/api/meals');
             }
