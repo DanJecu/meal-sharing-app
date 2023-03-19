@@ -7,9 +7,7 @@ export default defineConfig({
 
     server: {
         proxy: {
-            proxy: {
-                '/api': 'https://meal-sharing-app-backend-production.up.railway.app/',
-            },
+            '/api': 'https://meal-sharing-app-backend-production.up.railway.app/',
         },
     },
 });
