@@ -20,7 +20,7 @@ export default function MealsList() {
             const json = await res.json();
 
             if (res.ok) {
-                dispatch({ type: 'GET_MEALS', payload: json });
+                dispatch({ type: 'SET_MEALS', payload: json });
             }
         })();
     }, [dispatch, searchQuery]);

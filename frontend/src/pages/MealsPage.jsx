@@ -11,7 +11,7 @@ export default function MealsPage() {
     const handleQuery = e => {
         const newQuery = e.target.value;
         setQuery(newQuery);
-        dispatch({ type: 'SEARCH_MEALS', payload: newQuery });
+        dispatch({ type: 'SET_SEARCH_QUERY', payload: newQuery });
     };
 
     return (
