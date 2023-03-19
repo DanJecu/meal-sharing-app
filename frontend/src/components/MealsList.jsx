@@ -18,7 +18,7 @@ export default function MealsList() {
                     }/api/meals?title=${searchQuery}`
                 );
             } else {
-                res = await fetch('/api/meals');
+                res = await fetch(`${import.meta.env.VITE_APP_URL}/api/meals`);
             }
 
             const json = await res.json();
