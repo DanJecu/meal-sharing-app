@@ -9,7 +9,9 @@ export default function Meal({ meal }) {
     useEffect(() => {
         async function fetchReviews() {
             try {
-                const res = await fetch(`/api/reviews/${meal.id}`);
+                const res = await fetch(
+                    `${import.meta.env.VITE_APP_URL}/api/reviews/${meal.id}`
+                );
                 if (res.ok) {
                     const json = await res.json();
                     setRating(json);
