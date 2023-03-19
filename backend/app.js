@@ -10,7 +10,6 @@ const buildPath = path.join(__dirname, '../frontend/dist');
 
 const cors = require('cors');
 
-// For week4 no need to look into this!
 // Serve the built client html
 app.use(express.static(buildPath));
 
