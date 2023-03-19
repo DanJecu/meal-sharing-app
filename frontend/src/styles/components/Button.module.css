@@ -1,0 +1,25 @@
+.btn {
+    display: block;
+    width: 12rem;
+    padding: 0.8rem 0.3rem;
+    margin: 20px auto;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    background: var(--color-accents);
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+        rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+        rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.btn:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: var(--color-accents);
+}

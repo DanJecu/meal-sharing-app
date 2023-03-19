@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: var(--color-white);
+    width: 25rem;
+    height: 25rem;
+    padding: 2rem 2rem;
+    font-size: 1.5rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.form label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form input {
+    text-align: center;
+    margin-left: 2rem;
+    width: 65%;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    font-size: 1rem;
+}
+
+.form input:focus {
+    outline-color: var(--color-accents);
+}

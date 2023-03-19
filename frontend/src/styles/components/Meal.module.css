@@ -1,0 +1,70 @@
+.meal {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    justify-content: space-between;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    font-family: var(--font-primary);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    background-color: var(--color-white);
+}
+
+.mealDescription {
+    text-align: justify;
+    font-size: 0.8rem;
+    flex-shrink: 1;
+}
+
+.mealPrice {
+    justify-self: flex-start;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.mealTitle {
+    cursor: pointer;
+    justify-self: flex-start;
+    font-size: 1rem;
+    text-align: center;
+    flex-shrink: 1;
+}
+
+.mealTitle:hover {
+    color: var(--color-accents);
+}
+
+.delete {
+    cursor: pointer;
+    justify-self: flex-end;
+    bottom: 0;
+}
+
+.delete:hover {
+    transform: scale(1.3);
+}
+
+.delete:active {
+    transform: scale(0.9);
+}
+
+.starList {
+    display: flex;
+    align-items: center;
+}
+
+.starListItem {
+    display: inline;
+    align-self: flex-end;
+}
+
+.yellowStar {
+    fill: orange;
+}
+
+.ratings {
+    font-size: 0.8rem;
+}

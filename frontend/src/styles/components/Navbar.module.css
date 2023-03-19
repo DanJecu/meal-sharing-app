@@ -1,0 +1,59 @@
+.navbar {
+    font-family: var(--font-primary);
+    letter-spacing: 0.1rem;
+    padding: 0.5rem 2rem;
+    border-bottom: 1px solid #ddd;
+    background-color: var(--color-white);
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    font-family: var(--font-logo);
+    font-style: italic;
+}
+
+.logoMeal {
+    font-style: italic;
+    background: -webkit-linear-gradient(
+        109.6deg,
+        rgb(182, 244, 146) 11.2%,
+        rgb(51, 139, 147) 100.2%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logoSharing {
+    background-image: linear-gradient(
+        to right,
+        rgb(182, 244, 146),
+        rgb(51, 139, 147)
+    );
+    color: white;
+    padding: 0 1rem;
+    font-weight: 400;
+    border-radius: 15px 50px;
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: black;
+}
+
+.navigation a:hover {
+    color: var(--color-accents);
+}
+.navigation a:active {
+    color: black;
+}
