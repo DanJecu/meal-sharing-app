@@ -26,13 +26,16 @@ export default function FormReservation({ meal }) {
 
         let response;
         try {
-            response = await fetch('/api/reservations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(reservation),
-            });
+            response = await fetch(
+                `${import.meta.env.VITE_APP_URL}/api/reservations`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(reservation),
+                }
+            );
         } catch (error) {
             throw new Error(error);
         }

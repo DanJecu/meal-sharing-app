@@ -36,13 +36,16 @@ export default function ReviewPage() {
 
         let response;
         try {
-            response = await fetch('/api/reviews', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(review),
-            });
+            response = await fetch(
+                `${import.meta.env.VITE_APP_URL}/api/reviews`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(review),
+                }
+            );
         } catch (error) {
             throw new Error(error);
         }
