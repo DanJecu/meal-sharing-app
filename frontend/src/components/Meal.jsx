@@ -38,7 +38,6 @@ export default function Meal({ meal }) {
     };
 
     const renderRatingText = () => {
-        console.log(rating);
         if (rating.message) {
             return 'no reviews';
         } else if (rating.length === 1) {
