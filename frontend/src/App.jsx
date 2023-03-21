@@ -1,40 +1,49 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Context
-import { MealsProvider } from './contexts/MealsContext';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Pages
+import Layout from './pages/Layout';
 import Home from './pages/HomePage';
 import ReservationPage from './pages/ReservationPage';
 import MealsPage from './pages/MealsPage';
 import NotFoundPage from './pages/NotFoundPage';
-
-// Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import ReviewPage from './pages/ReviewPage';
 
-function App() {
+// Context Provider
+import { MealsProvider } from './contexts/MealsContext';
+
+const router = createBrowserRouter([
+    {
+        element: <Layout />,
+        children: [
+            {
+                path: '/',
+                element: <Home />,
+            },
+
+            {
+                path: '/meals',
+                element: <MealsPage />,
+            },
+            {
+                path: '/reservation/:mealId',
+                element: <ReservationPage />,
+            },
+            {
+                path: 'reviews',
+                element: <ReviewPage />,
+            },
+            {
+                path: '*',
+                element: <NotFoundPage />,
+            },
+        ],
+    },
+]);
+
+export default function App() {
     return (
-        <div className='app'>
-            <MealsProvider>
-                <Router>
-                    <Navbar />
-                    <Routes>
-                        <Route path='/' element={<Home />} />
-                        <Route path='/meals' element={<MealsPage />} />
-                        <Route
-                            path='/reservation/:mealId'
-                            element={<ReservationPage />}
-                        />
-                        <Route path='/reviews' element={<ReviewPage />} />
-                        <Route path='*' element={<NotFoundPage />} />
-                    </Routes>
-                    <Footer />
-                </Router>
-            </MealsProvider>
-        </div>
+        <MealsProvider>
+            <RouterProvider router={router} />
+        </MealsProvider>
     );
 }
-
-export default App;
