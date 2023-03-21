@@ -32,7 +32,7 @@ main {
 
 select {
     color: black;
-    text-transform: black;
+    text-transform: capitalize;
 }
 
 option {
