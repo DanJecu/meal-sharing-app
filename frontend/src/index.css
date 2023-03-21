@@ -30,6 +30,11 @@ main {
     align-items: center;
 }
 
+option {
+    color: black;
+    text-transform: black;
+}
+
 a {
     text-decoration: none;
     color: black;

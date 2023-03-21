@@ -70,11 +70,6 @@ select {
         margin-bottom: 0;
     }
 
-    .form select option {
-        color: black;
-        text-transform: capitalize;
-    }
-
     .form input,
     textarea,
     select {
