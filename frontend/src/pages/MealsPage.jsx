@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { MealsContext } from '../contexts/MealsContext';
 import searchImg from '../assets/images/search.png';
 import styles from '../styles/pages/MealsPage.module.css';
@@ -13,6 +13,13 @@ export default function MealsPage() {
         setQuery(newQuery);
         dispatch({ type: 'SET_SEARCH_QUERY', payload: newQuery });
     };
+
+    // clear the search bar when component unmounts
+    useEffect(() => {
+        return () => {
+            dispatch({ type: 'SET_SEARCH_QUERY', payload: '' });
+        };
+    }, [dispatch]);
 
     return (
         <main className={styles.main}>
