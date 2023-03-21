@@ -7,7 +7,7 @@
 .main {
     display: flex;
     padding: 2rem 0;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
     gap: 2rem;
 }
