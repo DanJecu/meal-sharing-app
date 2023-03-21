@@ -1,4 +1,13 @@
 import React from 'react';
+import styles from '../styles/components/Star.module.css';
+
+export const renderStarList = averageStars => {
+    return [1, 2, 3, 4, 5].map(index => (
+        <li className={styles.starListItem} key={index}>
+            <Star yellow={index <= averageStars} />
+        </li>
+    ));
+};
 
 export default function Star({ yellow }) {
     return (

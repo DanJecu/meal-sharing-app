@@ -10,11 +10,13 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(true);
 
     const toggleMenu = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         setIsOpen(!isOpen);
     };
 
     return (
         <header className={styles.navbar}>
+            {/*  logo */}
             <Link to='/'>
                 <span className={styles.logo}>
                     <h1 className={styles.logoMeal}>MEAL</h1>
@@ -23,16 +25,11 @@ export default function Navbar() {
             </Link>
             {/* burger menu */}
             {isMobile && (
-                <button
-                    className={styles.btnMenu}
-                    onClick={toggleMenu}
-                    onTouchEnd={() =>
-                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                    }
-                >
+                <button className={styles.btnMenu} onClick={toggleMenu}>
                     <TiThMenu />
                 </button>
             )}
+            {/*  navigation links */}
             <ul
                 className={styles.navigation}
                 style={{ display: isMobile && isOpen ? 'none' : 'flex' }}

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/components/FormReservation.module.css';
 import Button from './Button';
 import Modal from './Modal';
 
-export default function FormReservation({ meal }) {
+export default function FormReservation({ id, max_reservations }) {
     const { handleModalOpen } = useContext(MealsContext);
 
     const initialReservationState = {
@@ -21,7 +21,7 @@ export default function FormReservation({ meal }) {
 
         let currentDate = new Date().toJSON().slice(0, 10);
 
-        reservation.meal_id = meal.id;
+        reservation.meal_id = id;
         reservation.created_date = currentDate;
 
         let response;
@@ -63,7 +63,7 @@ export default function FormReservation({ meal }) {
                     <input
                         type='number'
                         min='1'
-                        max={meal.max_reservations}
+                        max={max_reservations}
                         required
                         name='number_of_guests'
                         value={reservation.number_of_guests}

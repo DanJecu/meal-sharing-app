@@ -33,7 +33,7 @@ export default function MealsList() {
         <>
             <ul className={styles.meals}>
                 {meals.length ? (
-                    meals.map(meal => <Meal meal={meal} key={meal.id} />)
+                    meals.map(meal => <Meal {...meal} key={meal.id} />)
                 ) : (
                     <h2>There is no meal with this name 😥</h2>
                 )}

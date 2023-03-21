@@ -22,8 +22,8 @@ export default function ReservationPage() {
 
     return (
         <main className={styles.main}>
-            <Meal meal={meal} />
-            <FormReservation meal={meal} />
+            <Meal {...meal} />
+            <FormReservation {...meal} />
         </main>
     );
 }

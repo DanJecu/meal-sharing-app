@@ -1,0 +1,17 @@
+.starList {
+    display: flex;
+    align-items: center;
+}
+
+.starListItem {
+    display: inline;
+    align-self: flex-end;
+}
+
+.yellowStar {
+    fill: orange;
+}
+
+.ratings {
+    font-size: 0.8rem;
+}

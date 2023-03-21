@@ -42,29 +42,3 @@
     justify-self: flex-end;
     bottom: 0;
 }
-
-.delete:hover {
-    transform: scale(1.3);
-}
-
-.delete:active {
-    transform: scale(0.9);
-}
-
-.starList {
-    display: flex;
-    align-items: center;
-}
-
-.starListItem {
-    display: inline;
-    align-self: flex-end;
-}
-
-.yellowStar {
-    fill: orange;
-}
-
-.ratings {
-    font-size: 0.8rem;
-}
