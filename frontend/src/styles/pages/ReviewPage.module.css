@@ -34,8 +34,9 @@ textarea {
     margin-left: 0;
 }
 
-.form select {
+.form select option {
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .form input,
