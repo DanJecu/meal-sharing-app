@@ -34,11 +34,6 @@ textarea {
     margin-left: 0;
 }
 
-.form select option {
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
 .form input,
 select {
     text-align: center;
@@ -73,6 +68,11 @@ select {
     .title {
         font-size: 1rem;
         margin-bottom: 0;
+    }
+
+    .form select option {
+        color: black;
+        text-transform: capitalize;
     }
 
     .form input,
