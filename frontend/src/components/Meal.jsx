@@ -55,7 +55,7 @@ export default function Meal({ meal }) {
             <span className={styles.ratings}>({renderRatingText()})</span>
             <ul className={styles.starList}>{renderStarList()}</ul>
             <p className={styles.mealDescription}>{meal.description}</p>
-            <span className={styles.mealPrice}>€{parseInt(meal.price)}</span>
+            <h3 className={styles.mealPrice}>€{parseInt(meal.price)}</h3>
         </li>
     );
 }
