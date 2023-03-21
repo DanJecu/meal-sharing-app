@@ -35,7 +35,7 @@ export default function MealsList() {
                 {meals.length ? (
                     meals.map(meal => <Meal meal={meal} key={meal.id} />)
                 ) : (
-                    <h2>There is no meal with this name 🥲</h2>
+                    <h2>There is no meal with this name 😥</h2>
                 )}
             </ul>
         </>

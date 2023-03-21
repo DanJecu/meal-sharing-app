@@ -43,3 +43,9 @@ footer {
     color: #777;
     border-top: 1px solid #eaeaea;
 }
+
+@media only screen and (max-width: 769px) {
+    .app {
+        max-width: 90%;
+    }
+}

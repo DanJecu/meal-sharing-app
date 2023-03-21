@@ -58,7 +58,7 @@ select {
 .starList {
     display: flex;
     list-style: none;
-
+    height: 2rem;
     justify-content: center;
 }
 
@@ -66,4 +66,21 @@ select {
     width: 4rem;
     height: 4rem;
     margin-bottom: 0;
+}
+
+@media only screen and (max-width: 769px) {
+    .title {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .form input,
+    textarea,
+    select {
+        width: 90%;
+    }
+
+    .starList {
+        height: 2rem;
+    }
 }

@@ -33,3 +33,9 @@
 .btn:active {
     background-color: var(--color-accents);
 }
+
+@media only screen and (max-width: 769px) {
+    .main {
+        margin: 2rem 0;
+    }
+}
