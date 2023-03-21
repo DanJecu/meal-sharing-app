@@ -30,6 +30,11 @@ main {
     align-items: center;
 }
 
+select {
+    color: black;
+    text-transform: black;
+}
+
 option {
     color: black;
     text-transform: black;
