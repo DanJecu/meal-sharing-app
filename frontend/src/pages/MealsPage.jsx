@@ -6,18 +6,18 @@ import MealsList from '../components/MealsList';
 
 export default function MealsPage() {
     const [query, setQuery] = useState('');
-    const { dispatch } = useContext(MealsContext);
+    const { dispatch, actionTypes } = useContext(MealsContext);
 
     const handleQuery = e => {
         const newQuery = e.target.value;
         setQuery(newQuery);
-        dispatch({ type: 'SET_SEARCH_QUERY', payload: newQuery });
+        dispatch({ type: actionTypes.SET_SEARCH_QUERY, payload: newQuery });
     };
 
-    // clear the search bar when component unmounts
+    // clear the search bar when search component unmounts
     useEffect(() => {
         return () => {
-            dispatch({ type: 'SET_SEARCH_QUERY', payload: '' });
+            dispatch({ type: actionTypes.SET_SEARCH_QUERY, payload: '' });
         };
     }, [dispatch]);
 

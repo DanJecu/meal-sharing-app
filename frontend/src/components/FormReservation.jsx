@@ -37,7 +37,7 @@ export default function FormReservation({ id, max_reservations }) {
                 }
             );
         } catch (error) {
-            throw new Error(error);
+            throw new Error(error.message);
         }
         if (response.ok) {
             const data = await response.json();

@@ -27,24 +27,33 @@ const mealsReducer = (state, action) => {
     }
 };
 
+const fetchMeals = async (dispatch, searchQuery) => {
+    let res;
+    try {
+        const url = searchQuery
+            ? `${import.meta.env.VITE_APP_URL}/api/meals?title=${searchQuery}`
+            : `${import.meta.env.VITE_APP_URL}/api/meals`;
+
+        res = await fetch(url);
+    } catch (error) {
+        throw new Error(error.message);
+    }
+    if (res.ok) {
+        const json = await res.json();
+        dispatch({ type: actionTypes.SET_MEALS, payload: json });
+    }
+};
+
 export const MealsProvider = ({ children }) => {
     const [state, dispatch] = useReducer(mealsReducer, initialState);
 
     useEffect(() => {
-        const fetchMeals = async () => {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_APP_URL}/api/meals`
-                );
-
-                const json = await response.json();
-                dispatch({ type: actionTypes.SET_MEALS, payload: json });
-            } catch (error) {
-                throw new Error(error);
-            }
-        };
-        fetchMeals();
+        fetchMeals(dispatch, state.searchQuery); // Fetch on Mount
     }, []);
+
+    useEffect(() => {
+        fetchMeals(dispatch, state.searchQuery); // Fetch on search
+    }, [state.searchQuery]);
 
     const handleModalOpen = () => {
         dispatch({ type: actionTypes.SET_IS_MODAL_OPEN, payload: true });
@@ -63,7 +72,7 @@ export const MealsProvider = ({ children }) => {
     }, [state.isModalOpen]);
 
     const mealsContextValue = useMemo(
-        () => ({ ...state, dispatch, handleModalOpen }),
+        () => ({ ...state, dispatch, handleModalOpen, actionTypes }),
         [state]
     );
 
