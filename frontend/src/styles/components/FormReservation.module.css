@@ -34,3 +34,9 @@
 .form input:focus {
     outline-color: var(--color-accents);
 }
+
+@media only screen and (max-width: 767px) {
+    .form input {
+        font-size: 0.72rem;
+    }
+}
