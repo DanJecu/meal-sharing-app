@@ -8,6 +8,10 @@ import Meal from './Meal';
 export default function MealsList() {
     const { meals } = useContext(MealsContext);
 
+    if (!meals) {
+        return <h4>loading...</h4>;
+    }
+
     return (
         <>
             <ul className={styles.meals}>
