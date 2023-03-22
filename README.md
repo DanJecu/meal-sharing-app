@@ -5,6 +5,7 @@
 ## Description
 
 This is a full-stack web application built with Express.js, React, and PostgreSQL.
+
 It was created as an individual project task for [Hack Your Future](https://github.com/HackYourFuture-CPH) Denmark's curriculum.
 
 The backend of the app was deployed on **[Railway](https://railway.app/)**, while the frontend was deployed on **[Vercel](https://vercel.com/)**.
