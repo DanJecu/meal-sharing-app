@@ -2,6 +2,17 @@ import React from 'react';
 
 import styles from '../styles/components/Button.module.css';
 
-export default function Button({ text }) {
-    return <button className={styles.btn}>{text}</button>;
+function Button({ text, disabled }) {
+    return (
+        <button className={styles.btn} disabled={disabled}>
+            {text}
+        </button>
+    );
 }
+
+Button.defaultProps = {
+    text: 'Submit',
+    disabled: false,
+};
+
+export default Button;

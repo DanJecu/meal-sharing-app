@@ -13,6 +13,10 @@
     background-color: var(--color-white);
 }
 
+.ratings {
+    font-size: 0.9rem;
+}
+
 .mealDescription {
     text-align: justify;
     font-size: 0.8rem;

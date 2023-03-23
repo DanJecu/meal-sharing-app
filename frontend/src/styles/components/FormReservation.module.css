@@ -8,17 +8,24 @@
     background-color: var(--color-white);
     width: 25rem;
     height: 25rem;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     font-size: 1.5rem;
 }
 
 .title {
     text-align: center;
-    padding-bottom: 0.5rem;
+}
+
+.spotsLeft {
+    font-size: 0.85rem;
+    color: var(--color-accents);
+    font-weight: bold;
+    text-align: center;
 }
 
 .form label {
     display: flex;
+    font-size: 1.2rem;
     justify-content: space-between;
 }
 

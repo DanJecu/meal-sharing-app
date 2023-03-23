@@ -1,20 +1,45 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { MealsContext } from '../contexts/MealsContext';
+import {
+    renderReservations,
+    calculateReservations,
+} from '../../utils/calculateReservations';
 import styles from '../styles/components/FormReservation.module.css';
+
+// Components
 import Button from './Button';
 import Modal from './Modal';
 
 export default function FormReservation({ id, max_reservations }) {
-    const { handleModalOpen } = useContext(MealsContext);
-
     const initialReservationState = {
-        number_of_guests: 1,
+        number_of_guests: 0,
         contact_name: '',
         contact_phonenumber: '',
         contact_email: '',
     };
-
+    const { handleModalOpen } = useContext(MealsContext);
+    // Set initial reservation
     const [reservation, setReservation] = useState(initialReservationState);
+    // Set number of bookings for meal
+    const [bookings, setBookings] = useState(0);
+
+    useEffect(() => {
+        (async () => {
+            let res;
+            try {
+                res = await fetch(
+                    `${import.meta.env.VITE_APP_URL}/api/reservations/${id}`
+                );
+            } catch (error) {
+                throw new Error(error.message);
+            }
+
+            if (res.ok) {
+                const json = await res.json();
+                setBookings(json);
+            }
+        })();
+    }, [bookings, id]);
 
     const handleReservation = async e => {
         e.preventDefault();
@@ -54,16 +79,25 @@ export default function FormReservation({ id, max_reservations }) {
         });
     };
 
+    if (!bookings) {
+        return <div>loading...</div>;
+    }
+
+    const guests = calculateReservations(bookings, max_reservations);
+
     return (
         <>
             <form className={styles.form} onSubmit={handleReservation}>
                 <h2 className={styles.title}>Reservation</h2>
+                <span className={styles.spotsLeft}>
+                    {renderReservations(guests)}
+                </span>
                 <label>
                     Guests
                     <input
                         type='number'
-                        min='1'
-                        max={max_reservations}
+                        min='0'
+                        max={guests}
                         required
                         name='number_of_guests'
                         value={reservation.number_of_guests}
@@ -100,7 +134,11 @@ export default function FormReservation({ id, max_reservations }) {
                         onChange={handleInputChange}
                     />
                 </label>
-                <Button text={'Book Meal'} />
+
+                <Button
+                    text={'Book Meal'}
+                    disabled={max_reservations > guests}
+                />
             </form>
 
             <Modal text={'Reservation'} />

@@ -23,3 +23,9 @@
 .btn:active {
     background-color: var(--color-accents);
 }
+
+.btn:disabled {
+    background-color: darkgray;
+    color: black;
+    cursor: not-allowed;
+}
