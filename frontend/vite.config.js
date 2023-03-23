@@ -7,7 +7,7 @@ export default defineConfig({
 
     server: {
         proxy: {
-            '/api': import.meta.env.VITE_APP_URL,
+            '/api': 'https://meal-sharing-app-backend-production.up.railway.app/',
         },
     },
 });
