@@ -30,7 +30,7 @@ router.get('/:id', async (request, response) => {
         const reservation = await knex
             .select()
             .from('reservations')
-            .where({ id: reservationId });
+            .where({ meal_id: reservationId });
         reservation.length
             ? response.json(reservation)
             : response.json({
