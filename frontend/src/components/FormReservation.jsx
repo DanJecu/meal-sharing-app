@@ -8,6 +8,7 @@ import styles from '../styles/components/FormReservation.module.css';
 
 // Components
 import Button from './Button';
+
 import Modal from './Modal';
 
 export default function FormReservation({ id, max_reservations }) {
@@ -78,10 +79,6 @@ export default function FormReservation({ id, max_reservations }) {
             [e.target.name]: e.target.value,
         });
     };
-
-    if (!bookings) {
-        return <div>loading...</div>;
-    }
 
     const guests = calculateReservations(bookings, max_reservations);
 

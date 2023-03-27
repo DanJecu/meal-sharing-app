@@ -5,6 +5,7 @@ import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/pages/ReservationPage.module.css';
 import Meal from '../components/Meal';
 import FormReservation from '../components/FormReservation';
+import { Loading } from '../components/Loading';
 
 export default function ReservationPage() {
     const { mealId } = useParams();
@@ -15,7 +16,7 @@ export default function ReservationPage() {
     if (!meal) {
         return (
             <main className={styles.loading}>
-                <h4>loading...</h4>
+                <Loading />
             </main>
         );
     }
