@@ -4,12 +4,13 @@ import styles from '../styles/components/MealsList.module.css';
 
 // Components
 import Meal from './Meal';
+import { Loading } from './Loading';
 
 export default function MealsList() {
-    const { meals } = useContext(MealsContext);
+    const { meals, isLoading } = useContext(MealsContext);
 
-    if (!meals) {
-        return <h4>loading...</h4>;
+    if (isLoading) {
+        return <Loading />;
     }
 
     return (

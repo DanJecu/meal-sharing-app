@@ -6,12 +6,14 @@ const initialState = {
     meals: [],
     searchQuery: '',
     isModalOpen: false,
+    isLoading: true,
 };
 
 const actionTypes = {
     SET_MEALS: 'SET_MEALS',
     SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
     SET_IS_MODAL_OPEN: 'SET_IS_MODAL_OPEN',
+    SET_IS_LOADING: 'SET_IS_LOADING',
 };
 
 const mealsReducer = (state, action) => {
@@ -22,6 +24,8 @@ const mealsReducer = (state, action) => {
             return { ...state, searchQuery: action.payload };
         case actionTypes.SET_IS_MODAL_OPEN:
             return { ...state, isModalOpen: action.payload };
+        case actionTypes.SET_IS_LOADING:
+            return { ...state, isLoading: action.payload };
         default:
             return state;
     }
@@ -41,6 +45,7 @@ const fetchMeals = async (dispatch, searchQuery) => {
     if (res.ok) {
         const json = await res.json();
         dispatch({ type: actionTypes.SET_MEALS, payload: json });
+        dispatch({ type: actionTypes.SET_IS_LOADING, payload: false });
     }
 };
 
