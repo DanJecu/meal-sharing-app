@@ -132,10 +132,7 @@ export default function FormReservation({ id, max_reservations }) {
                     />
                 </label>
 
-                <Button
-                    text={'Book Meal'}
-                    disabled={max_reservations > guests}
-                />
+                <Button text={'Book Meal'} disabled={guests <= 0} />
             </form>
 
             <Modal text={'Reservation'} />
