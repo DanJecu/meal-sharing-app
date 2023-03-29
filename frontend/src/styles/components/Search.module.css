@@ -89,4 +89,8 @@
     .search:focus-within {
         width: 100%;
     }
+
+    .searchKeys {
+        padding: 0.7rem;
+    }
 }
