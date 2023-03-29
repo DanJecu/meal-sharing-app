@@ -1,9 +1,18 @@
+.container {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .search {
     display: flex;
-    margin-top: 1rem;
-    align-self: top;
+    justify-content: center;
     align-items: center;
-    width: 8rem;
+    width: 15rem;
     height: 2.75rem;
     padding: 0.5rem;
     border: 0.2rem solid #dfe1e5;
@@ -27,6 +36,57 @@
 }
 
 .search:focus-within {
-    width: 20rem;
+    width: 25rem;
     border-color: var(--color-accents);
+}
+
+.searchFilters {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.searchFilters button,
+select {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border: none;
+}
+
+.searchFilters button {
+    width: 3rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border: none;
+    font-size: 1.19rem;
+}
+
+.searchFilters button:active {
+    transform: scale(0.9);
+}
+
+.searchFilters select {
+    width: 8rem;
+    font-family: var(--font-primary);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border: none;
+}
+
+.searchFilters select:focus {
+    outline: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .search {
+        width: 80%;
+    }
+
+    .search:focus-within {
+        width: 100%;
+    }
 }

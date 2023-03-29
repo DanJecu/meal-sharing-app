@@ -29,7 +29,7 @@ const router = createBrowserRouter([
                 element: <ReservationPage />,
             },
             {
-                path: 'reviews',
+                path: '/reviews',
                 element: <ReviewPage />,
             },
             {

@@ -5,6 +5,8 @@ export const MealsContext = createContext();
 const initialState = {
     meals: [],
     searchQuery: '',
+    sortKey: 'price',
+    sortDir: 'asc',
     isModalOpen: false,
     isLoading: true,
 };
@@ -12,6 +14,8 @@ const initialState = {
 const actionTypes = {
     SET_MEALS: 'SET_MEALS',
     SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
+    SET_SORT_KEY: 'SET_SORT_KEY',
+    SET_SORT_DIR: 'SET_SORT_DIR',
     SET_IS_MODAL_OPEN: 'SET_IS_MODAL_OPEN',
     SET_IS_LOADING: 'SET_IS_LOADING',
 };
@@ -22,6 +26,10 @@ const mealsReducer = (state, action) => {
             return { ...state, meals: action.payload };
         case actionTypes.SET_SEARCH_QUERY:
             return { ...state, searchQuery: action.payload };
+        case actionTypes.SET_SORT_KEY:
+            return { ...state, sortKey: action.payload };
+        case actionTypes.SET_SORT_DIR:
+            return { ...state, sortDir: action.payload };
         case actionTypes.SET_IS_MODAL_OPEN:
             return { ...state, isModalOpen: action.payload };
         case actionTypes.SET_IS_LOADING:
@@ -31,12 +39,16 @@ const mealsReducer = (state, action) => {
     }
 };
 
-const fetchMeals = async (dispatch, searchQuery) => {
+const fetchMeals = async (dispatch, searchQuery, sortKey, sortDir) => {
     let res;
     try {
         const url = searchQuery
-            ? `${import.meta.env.VITE_APP_URL}/api/meals?title=${searchQuery}`
-            : `${import.meta.env.VITE_APP_URL}/api/meals`;
+            ? `${
+                  import.meta.env.VITE_APP_URL
+              }/api/meals?title=${searchQuery}&sortKey=${sortKey}&sortDir=${sortDir}`
+            : `${
+                  import.meta.env.VITE_APP_URL
+              }/api/meals?sortKey=${sortKey}&sortDir=${sortDir}`;
 
         res = await fetch(url);
     } catch (error) {
@@ -53,12 +65,12 @@ export const MealsProvider = ({ children }) => {
     const [state, dispatch] = useReducer(mealsReducer, initialState);
 
     useEffect(() => {
-        fetchMeals(dispatch, state.searchQuery); // Fetch on Mount
-    }, []);
+        fetchMeals(dispatch, state.searchQuery, state.sortKey, state.sortDir); // Fetch on Mount
+    }, [state.sortKey, state.sortDir]);
 
     useEffect(() => {
-        fetchMeals(dispatch, state.searchQuery); // Fetch on search
-    }, [state.searchQuery]);
+        fetchMeals(dispatch, state.searchQuery, state.sortKey, state.sortDir); // Fetch on search
+    }, [state.searchQuery, state.sortKey, state.sortDir]);
 
     const handleModalOpen = () => {
         dispatch({ type: actionTypes.SET_IS_MODAL_OPEN, payload: true });

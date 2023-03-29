@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import { MealsContext } from '../contexts/MealsContext';
 import {
     renderReservations,
@@ -80,7 +80,13 @@ export default function FormReservation({ id, max_reservations }) {
         });
     };
 
-    const guests = calculateReservations(bookings, max_reservations);
+    const guests = useMemo(() => {
+        if (bookings === null) {
+            return null;
+        }
+
+        return calculateReservations(bookings, max_reservations);
+    }, [bookings, max_reservations]);
 
     return (
         <>
