@@ -16,6 +16,7 @@ The main functionalities of this website are:
 -   Searching for a meal
 -   Making a reservation
 -   Leaving a review
+-   Sorting meals
 
 ## What I Learned
 
