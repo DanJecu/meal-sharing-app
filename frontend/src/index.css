@@ -33,6 +33,8 @@ main {
 select {
     color: black;
     text-transform: capitalize;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 option {
