@@ -54,11 +54,13 @@ export function Search() {
                         <FaSortAmountDown />
                     )}
                 </button>
-                <select defaultValue={sortKey} onChange={handleSortKey}>
-                    <option value='when'>Date</option>
-                    <option value='max_reservations'>Spots</option>
-                    <option value='price'>Price</option>
-                </select>
+                <div className={styles.searchKeys}>
+                    <select defaultValue={sortKey} onChange={handleSortKey}>
+                        <option value='when'>Date</option>
+                        <option value='max_reservations'>Spots</option>
+                        <option value='price'>Price</option>
+                    </select>
+                </div>
             </div>
         </div>
     );

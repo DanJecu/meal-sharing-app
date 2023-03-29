@@ -64,15 +64,21 @@
     transform: scale(0.9);
 }
 
-.searchFilters select {
-    width: 8rem;
-    font-family: var(--font-primary);
+.searchKeys {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
         rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 0.8rem;
+}
+
+.searchKeys select {
+    width: 8rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    font-family: var(--font-primary);
     border: none;
 }
 
-.searchFilters select:focus {
+.searchKeys select:focus {
     outline: none;
 }
 
@@ -83,9 +89,5 @@
 
     .search:focus-within {
         width: 100%;
-    }
-    .searchFilters select {
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     }
 }
