@@ -45,7 +45,7 @@ export default function FormReservation({ id, max_reservations }) {
     const handleReservation = async e => {
         e.preventDefault();
 
-        let currentDate = new Date().toJSON().slice(0, 10);
+        let currentDate = new Date().toLocaleDateString('fr-CA');
 
         reservation.meal_id = id;
         reservation.created_date = currentDate;

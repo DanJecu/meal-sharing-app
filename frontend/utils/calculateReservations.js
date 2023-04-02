@@ -13,7 +13,7 @@ export function calculateReservations(bookings, max_reservations) {
         return max_reservations;
     }
 
-    const currentDate = new Date().toISOString().slice(0, 10);
+    const currentDate = new Date().toLocaleDateString('fr-CA');
     const bookingsForCurrentDate = bookings.filter(booking => {
         const bookingDate = booking.created_date.slice(0, 10);
 
