@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { MealsContext } from '../contexts/MealsContext';
-
 import styles from '../styles/pages/ReservationPage.module.css';
+
+// Components
+import Button from '../components/Button';
 import Meal from '../components/Meal';
 import FormReservation from '../components/FormReservation';
 import { Loading } from '../components/Loading';

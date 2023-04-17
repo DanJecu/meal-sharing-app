@@ -17,7 +17,7 @@ export default function Meal({ id, title, description, price }) {
                     setRating(json);
                 }
             } catch (error) {
-                console.error(error);
+                throw new Error(error.message);
             }
         }
         fetchReviews();
