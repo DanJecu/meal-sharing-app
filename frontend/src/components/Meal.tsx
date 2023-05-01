@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { renderStarList } from './Star';
 import styles from '../styles/components/Meal.module.css';
 
-interface MealProps {
-    id: string;
+export interface MealProps {
+    id: number;
     title: string;
     description: string;
-    price: string;
+    price: number;
 }
 
 const Meal: React.FC<MealProps> = ({ id, title, description, price }) => {
@@ -60,7 +60,7 @@ const Meal: React.FC<MealProps> = ({ id, title, description, price }) => {
             <span className={styles.ratings}>({renderRatingText()})</span>
             <ul className={styles.starList}>{renderStarList(averageStars)}</ul>
             <p className={styles.mealDescription}>{description}</p>
-            <h3 className={styles.mealPrice}>€{parseInt(price)}</h3>
+            <h3 className={styles.mealPrice}>€{parseInt(String(price))}</h3>
         </li>
     );
 };

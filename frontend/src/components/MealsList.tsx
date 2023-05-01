@@ -3,7 +3,7 @@ import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/components/MealsList.module.css';
 
 // Components
-import Meal from './Meal';
+import Meal, { MealProps } from './Meal';
 import { Loading } from './Loading';
 
 const MealsList: React.FC = () => {
@@ -17,7 +17,9 @@ const MealsList: React.FC = () => {
         <>
             <ul className={styles.meals}>
                 {meals.length ? (
-                    meals.map(meal => <Meal {...meal} key={meal.id} />)
+                    meals.map((meal: MealProps) => (
+                        <Meal {...meal} key={meal.id.toString()} />
+                    ))
                 ) : (
                     <h2>There is no meal with this name 😥</h2>
                 )}
