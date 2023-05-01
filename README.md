@@ -18,6 +18,11 @@ The main functionalities of this website are:
 -   Leaving a review
 -   Sorting meals
 
+## Screenshots
+
+![](https://github.com/danJecu/meal-sharing-app/blob/main/screenMeals.png)
+![](https://github.com/danJecu/meal-sharing-app/blob/main/screenReviews.png)
+
 ## What I Learned
 
 During the development of this project, I faced several challenges that helped me learn new skills and technologies. Some of the challenges I faced include building a Star component for leaving a rating for a meal, a Modal component, and a Burger Menu for mobile displays.
