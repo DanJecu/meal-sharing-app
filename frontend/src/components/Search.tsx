@@ -3,27 +3,29 @@ import styles from '../styles/components/Search.module.css';
 import { MealsContext } from '../contexts/MealsContext';
 import searchImg from '../assets/images/search.png';
 import { FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
+import { actionTypes } from '../contexts/MealsContext';
+interface SearchProps {}
 
-export function Search() {
-    const { dispatch, actionTypes } = useContext(MealsContext);
-    const [query, setQuery] = useState('');
-    const [sortKey, setSortKey] = useState('price');
-    const [sortDir, setSortDir] = useState('asc');
+const Search: React.FC<SearchProps> = () => {
+    const { dispatch } = useContext(MealsContext);
+    const [query, setQuery] = useState<string>('');
+    const [sortKey, setSortKey] = useState<string>('price');
+    const [sortDir, setSortDir] = useState<string>('asc');
 
     // clear the search bar when search component unmounts
     useEffect(() => {
         return () => {
             dispatch({ type: actionTypes.SET_SEARCH_QUERY, payload: '' });
         };
-    }, [dispatch]);
+    }, [dispatch, actionTypes]);
 
-    const handleSearchQuery = e => {
+    const handleSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newQuery = e.target.value;
         setQuery(newQuery);
         dispatch({ type: actionTypes.SET_SEARCH_QUERY, payload: newQuery });
     };
 
-    const handleSortKey = e => {
+    const handleSortKey = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const sortKey = e.target.value;
         setSortKey(sortKey);
         dispatch({ type: actionTypes.SET_SORT_KEY, payload: sortKey });
@@ -64,4 +66,6 @@ export function Search() {
             </div>
         </div>
     );
-}
+};
+
+export default Search;

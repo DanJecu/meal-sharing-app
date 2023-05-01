@@ -6,6 +6,19 @@ import React, {
     PropsWithChildren,
 } from 'react';
 
+type ActionTypes =
+    | 'SET_MEALS'
+    | 'SET_SEARCH_QUERY'
+    | 'SET_SORT_KEY'
+    | 'SET_SORT_DIR'
+    | 'SET_IS_MODAL_OPEN'
+    | 'SET_IS_LOADING';
+
+type Action<T extends ActionTypes, P> = {
+    type: T;
+    payload: P;
+};
+
 type Meal = {
     id: number;
     title: string;
@@ -22,14 +35,6 @@ type MealsState = {
     isLoading: boolean;
 };
 
-type Action =
-    | { type: 'SET_MEALS'; payload: Meal[] }
-    | { type: 'SET_SEARCH_QUERY'; payload: string }
-    | { type: 'SET_SORT_KEY'; payload: string }
-    | { type: 'SET_SORT_DIR'; payload: string }
-    | { type: 'SET_IS_MODAL_OPEN'; payload: boolean }
-    | { type: 'SET_IS_LOADING'; payload: boolean };
-
 type MealsContextType = {
     meals: Meal[];
     searchQuery: string;
@@ -37,14 +42,9 @@ type MealsContextType = {
     sortDir: string;
     isModalOpen: boolean;
     isLoading: boolean;
-    dispatch: React.Dispatch<Action>;
+    dispatch: React.Dispatch<Action<ActionTypes, any>>;
     handleModalOpen: () => void;
-    actionTypes: typeof actionTypes;
 };
-
-export const MealsContext = createContext<MealsContextType>(
-    {} as MealsContextType
-);
 
 const initialState: MealsState = {
     meals: [],
@@ -55,7 +55,11 @@ const initialState: MealsState = {
     isLoading: true,
 };
 
-const actionTypes = {
+export const MealsContext = createContext<MealsContextType>(
+    {} as MealsContextType
+);
+
+export const actionTypes: { [key in ActionTypes]: key } = {
     SET_MEALS: 'SET_MEALS',
     SET_SEARCH_QUERY: 'SET_SEARCH_QUERY',
     SET_SORT_KEY: 'SET_SORT_KEY',
@@ -64,7 +68,7 @@ const actionTypes = {
     SET_IS_LOADING: 'SET_IS_LOADING',
 };
 
-const mealsReducer = (state: MealsState, action: Action) => {
+const mealsReducer = (state: MealsState, action: Action<ActionTypes, any>) => {
     switch (action.type) {
         case actionTypes.SET_MEALS:
             return { ...state, meals: action.payload as Meal[] };
@@ -84,7 +88,7 @@ const mealsReducer = (state: MealsState, action: Action) => {
 };
 
 const fetchMeals = async (
-    dispatch: React.Dispatch<Action>,
+    dispatch: React.Dispatch<Action<ActionTypes, any>>,
     searchQuery: string,
     sortKey: string,
     sortDir: string
