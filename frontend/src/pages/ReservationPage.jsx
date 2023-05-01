@@ -4,7 +4,6 @@ import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/pages/ReservationPage.module.css';
 
 // Components
-import Button from '../components/Button';
 import Meal from '../components/Meal';
 import FormReservation from '../components/FormReservation';
 import { Loading } from '../components/Loading';

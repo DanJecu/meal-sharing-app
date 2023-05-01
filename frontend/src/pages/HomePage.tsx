@@ -5,7 +5,7 @@ import Button from '../components/Button';
 
 import styles from '../styles/pages/HomePage.module.css';
 
-export default function Home() {
+export const Home: React.FC = () => {
     return (
         <main className={styles.main}>
             <h2>
@@ -39,4 +39,4 @@ export default function Home() {
             </Link>
         </main>
     );
-}
+};
