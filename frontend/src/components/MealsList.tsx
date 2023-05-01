@@ -6,7 +6,7 @@ import styles from '../styles/components/MealsList.module.css';
 import Meal from './Meal';
 import { Loading } from './Loading';
 
-export default function MealsList() {
+const MealsList: React.FC = () => {
     const { meals, isLoading } = useContext(MealsContext);
 
     if (isLoading) {
@@ -24,4 +24,6 @@ export default function MealsList() {
             </ul>
         </>
     );
-}
+};
+
+export default MealsList;

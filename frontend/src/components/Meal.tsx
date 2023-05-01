@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import { renderStarList } from './Star';
 import styles from '../styles/components/Meal.module.css';
 
-export default function Meal({ id, title, description, price }) {
-    const [rating, setRating] = useState([]);
+interface MealProps {
+    id: string;
+    title: string;
+    description: string;
+    price: string;
+}
+
+const Meal: React.FC<MealProps> = ({ id, title, description, price }) => {
+    const [rating, setRating] = useState<Review[]>([]);
 
     useEffect(() => {
         async function fetchReviews() {
@@ -16,12 +23,18 @@ export default function Meal({ id, title, description, price }) {
                     const json = await res.json();
                     setRating(json);
                 }
-            } catch (error) {
+            } catch (error: any) {
                 throw new Error(error.message);
             }
         }
         fetchReviews();
     }, [id]);
+
+    interface Review {
+        id: number;
+        stars: number;
+        message: string;
+    }
 
     const averageStars =
         rating.length > 0
@@ -30,7 +43,7 @@ export default function Meal({ id, title, description, price }) {
             : 0;
 
     const renderRatingText = () => {
-        if (rating.message) {
+        if (rating.length === 0) {
             return 'no reviews';
         } else if (rating.length === 1) {
             return '1 review';
@@ -50,4 +63,6 @@ export default function Meal({ id, title, description, price }) {
             <h3 className={styles.mealPrice}>€{parseInt(price)}</h3>
         </li>
     );
-}
+};
+
+export default Meal;
