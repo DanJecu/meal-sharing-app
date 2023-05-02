@@ -1,10 +1,8 @@
-import React, {
-    createContext,
-    useEffect,
-    useMemo,
-    useReducer,
-    PropsWithChildren,
-} from 'react';
+import React, { createContext, useEffect, useMemo, useReducer } from 'react';
+
+interface MealsProviderProps {
+    children: React.ReactNode;
+}
 
 type ActionTypes =
     | 'SET_MEALS'
@@ -118,7 +116,7 @@ const fetchMeals = async (
     }
 };
 
-export const MealsProvider: React.FC = ({ children }: PropsWithChildren) => {
+export const MealsProvider: React.FC<MealsProviderProps> = ({ children }) => {
     const [state, dispatch] = useReducer(mealsReducer, initialState);
 
     useEffect(() => {
