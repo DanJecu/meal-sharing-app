@@ -1,15 +1,19 @@
 import React from 'react';
 import styles from '../styles/components/Star.module.css';
 
-export const renderStarList = averageStars => {
-    return [1, 2, 3, 4, 5].map(index => (
+interface StarProps {
+    yellow: boolean;
+}
+
+export const renderStarList = (averageStars: number) => {
+    return [1, 2, 3, 4, 5].map((index: number) => (
         <li className={styles.starListItem} key={index}>
             <Star yellow={index <= averageStars} />
         </li>
     ));
 };
 
-export default function Star({ yellow }) {
+export default function Star({ yellow }: StarProps) {
     return (
         <svg
             height='35'

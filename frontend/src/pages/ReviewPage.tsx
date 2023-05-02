@@ -9,19 +9,16 @@ import Star from '../components/Star';
 import styles from '../styles/pages/ReviewPage.module.css';
 
 export default function ReviewPage() {
-    // Redirecting the user
     const navigate = useNavigate();
-    // Stars
     const [hoverIndex, setHoverIndex] = useState(0);
     const [rating, setRating] = useState(0);
-    // Form
     const [meal, setMeal] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
     const { meals, handleModalOpen } = useContext(MealsContext);
 
-    const handleReview = async e => {
+    const handleReview = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const currentDate = new Date().toJSON().slice(0, 10);
@@ -46,7 +43,7 @@ export default function ReviewPage() {
                     body: JSON.stringify(review),
                 }
             );
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(error);
         }
         if (response.ok) {
@@ -55,7 +52,6 @@ export default function ReviewPage() {
             setTitle('');
             setDescription('');
             setRating(0);
-            // Toggle Modal
             handleModalOpen();
             setTimeout(() => navigate('/meals'), 1200);
         }
@@ -70,12 +66,10 @@ export default function ReviewPage() {
             <form className={styles.form} onSubmit={handleReview}>
                 <select
                     className={styles.selectList}
-                    defaultValue='default-value'
+                    value={meal}
                     onChange={e => setMeal(e.target.value)}
                 >
-                    <option value='default-value' disabled>
-                        Select a meal
-                    </option>
+                    <option value=''>Select a meal</option>
                     {meals.map(meal => (
                         <option value={meal.id} key={meal.id}>
                             {meal.title}
@@ -90,8 +84,8 @@ export default function ReviewPage() {
                     onChange={e => setTitle(e.target.value)}
                 />
                 <textarea
-                    cols='50'
-                    rows='12'
+                    cols={50}
+                    rows={12}
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                 ></textarea>

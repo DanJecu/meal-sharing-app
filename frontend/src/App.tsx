@@ -1,17 +1,17 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-// Pages
-import Layout from './pages/Layout';
-import Home from './pages/HomePage';
+import {
+    createBrowserRouter,
+    RouterProvider,
+    RouteObject,
+} from 'react-router-dom';
+import { Layout } from './pages/Layout';
+import { Home } from './pages/HomePage';
 import ReservationPage from './pages/ReservationPage';
 import MealsPage from './pages/MealsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ReviewPage from './pages/ReviewPage';
-
-// Context Provider
 import { MealsProvider } from './contexts/MealsContext';
 
-const router = createBrowserRouter([
+const routes: RouteObject[] = [
     {
         element: <Layout />,
         children: [
@@ -19,7 +19,6 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home />,
             },
-
             {
                 path: '/meals',
                 element: <MealsPage />,
@@ -38,7 +37,9 @@ const router = createBrowserRouter([
             },
         ],
     },
-]);
+];
+
+const router = createBrowserRouter(routes);
 
 export default function App() {
     return (

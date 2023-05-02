@@ -3,10 +3,10 @@ import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/components/MealsList.module.css';
 
 // Components
-import Meal from './Meal';
+import Meal, { MealProps } from './Meal';
 import { Loading } from './Loading';
 
-export default function MealsList() {
+const MealsList: React.FC = () => {
     const { meals, isLoading } = useContext(MealsContext);
 
     if (isLoading) {
@@ -17,11 +17,15 @@ export default function MealsList() {
         <>
             <ul className={styles.meals}>
                 {meals.length ? (
-                    meals.map(meal => <Meal {...meal} key={meal.id} />)
+                    meals.map((meal: MealProps) => (
+                        <Meal {...meal} key={meal.id.toString()} />
+                    ))
                 ) : (
                     <h2>There is no meal with this name 😥</h2>
                 )}
             </ul>
         </>
     );
-}
+};
+
+export default MealsList;

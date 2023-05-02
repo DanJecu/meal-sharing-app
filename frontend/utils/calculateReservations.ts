@@ -1,4 +1,4 @@
-export function renderReservations(guestsLeftForCurrentDate) {
+export function renderReservations(guestsLeftForCurrentDate: number): string {
     if (guestsLeftForCurrentDate <= 0) {
         return 'Sorry there are no more bookings left for today';
     } else if (guestsLeftForCurrentDate === 1) {
@@ -8,7 +8,10 @@ export function renderReservations(guestsLeftForCurrentDate) {
     }
 }
 
-export function calculateReservations(bookings, max_reservations) {
+export function calculateReservations(
+    bookings: any[],
+    max_reservations: number
+): number {
     if (!bookings.length) {
         return max_reservations;
     }

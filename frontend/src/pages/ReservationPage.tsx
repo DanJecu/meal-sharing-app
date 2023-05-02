@@ -4,16 +4,15 @@ import { MealsContext } from '../contexts/MealsContext';
 import styles from '../styles/pages/ReservationPage.module.css';
 
 // Components
-import Button from '../components/Button';
 import Meal from '../components/Meal';
 import FormReservation from '../components/FormReservation';
 import { Loading } from '../components/Loading';
 
-export default function ReservationPage() {
-    const { mealId } = useParams();
+const ReservationPage: React.FC = () => {
+    const { mealId } = useParams<{ mealId: string }>();
     const { meals } = useContext(MealsContext);
 
-    const meal = meals.find(meal => parseInt(meal.id) === parseInt(mealId));
+    const meal = mealId && meals.find(meal => meal.id.toString() === mealId);
 
     if (!meal) {
         return (
@@ -29,4 +28,6 @@ export default function ReservationPage() {
             <FormReservation {...meal} />
         </main>
     );
-}
+};
+
+export default ReservationPage;

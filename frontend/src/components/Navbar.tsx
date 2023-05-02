@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 import styles from '../styles/components/Navbar.module.css';
 
-export default function Navbar() {
+export const Navbar: React.FC = () => {
     const isMobile = useMediaQuery({ maxWidth: 768 });
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState<boolean>(true);
 
-    const toggleMenu = () => {
+    const toggleMenu = (): void => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         setIsOpen(!isOpen);
     };
@@ -52,4 +52,4 @@ export default function Navbar() {
             </ul>
         </header>
     );
-}
+};

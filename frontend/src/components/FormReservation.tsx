@@ -8,19 +8,36 @@ import styles from '../styles/components/FormReservation.module.css';
 
 // Components
 import Button from './Button';
-
 import Modal from './Modal';
 
-export default function FormReservation({ id, max_reservations }) {
-    const initialReservationState = {
+interface Reservation {
+    number_of_guests: number;
+    contact_name: string;
+    contact_phonenumber: string;
+    contact_email: string;
+    meal_id: number;
+    created_date: string;
+}
+
+type Props = {
+    id: number;
+    max_reservations: number;
+};
+
+export default function FormReservation({ id, max_reservations }: Props) {
+    const initialReservationState: Reservation = {
         number_of_guests: 0,
         contact_name: '',
         contact_phonenumber: '',
         contact_email: '',
+        meal_id: id,
+        created_date: '',
     };
     const { handleModalOpen } = useContext(MealsContext);
-    // Set initial reservation
-    const [reservation, setReservation] = useState(initialReservationState);
+
+    const [reservation, setReservation] = useState<Reservation>(
+        initialReservationState
+    );
     // Set number of bookings for meal
     const [bookings, setBookings] = useState(0);
 
@@ -31,7 +48,7 @@ export default function FormReservation({ id, max_reservations }) {
                 res = await fetch(
                     `${import.meta.env.VITE_APP_URL}/api/reservations/${id}`
                 );
-            } catch (error) {
+            } catch (error: any) {
                 throw new Error(error.message);
             }
 
@@ -42,7 +59,7 @@ export default function FormReservation({ id, max_reservations }) {
         })();
     }, [bookings, id]);
 
-    const handleReservation = async e => {
+    const handleReservation = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         let currentDate = new Date().toLocaleDateString('fr-CA');
@@ -62,7 +79,7 @@ export default function FormReservation({ id, max_reservations }) {
                     body: JSON.stringify(reservation),
                 }
             );
-        } catch (error) {
+        } catch (error: any) {
             throw new Error(error.message);
         }
         if (response.ok) {
@@ -73,7 +90,7 @@ export default function FormReservation({ id, max_reservations }) {
         }
     };
 
-    const handleInputChange = e => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setReservation({
             ...reservation,
             [e.target.name]: e.target.value,
@@ -81,7 +98,7 @@ export default function FormReservation({ id, max_reservations }) {
     };
 
     const guests = useMemo(() => {
-        if (bookings === null) {
+        if (!Array.isArray(bookings)) {
             return null;
         }
 
@@ -93,14 +110,14 @@ export default function FormReservation({ id, max_reservations }) {
             <form className={styles.form} onSubmit={handleReservation}>
                 <h2 className={styles.title}>Reservation</h2>
                 <span className={styles.spotsLeft}>
-                    {renderReservations(guests)}
+                    {guests !== null && renderReservations(guests)}
                 </span>
                 <label>
                     Guests
                     <input
                         type='number'
                         min='0'
-                        max={guests}
+                        max={guests || ''}
                         required
                         name='number_of_guests'
                         value={reservation.number_of_guests}
@@ -127,6 +144,7 @@ export default function FormReservation({ id, max_reservations }) {
                         onChange={handleInputChange}
                     />
                 </label>
+
                 <label>
                     Email
                     <input
@@ -138,7 +156,10 @@ export default function FormReservation({ id, max_reservations }) {
                     />
                 </label>
 
-                <Button text={'Book Meal'} disabled={guests <= 0} />
+                <Button
+                    text={'Book Meal'}
+                    disabled={guests === null || guests <= 0}
+                />
             </form>
 
             <Modal text={'Reservation'} />
