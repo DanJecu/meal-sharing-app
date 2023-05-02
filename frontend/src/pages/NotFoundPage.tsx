@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function NotFoundPage() {
+const NotFoundPage: React.FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,4 +17,6 @@ export default function NotFoundPage() {
             <h1>Sorry, this page does not exist.</h1>
         </main>
     );
-}
+};
+
+export default NotFoundPage;
