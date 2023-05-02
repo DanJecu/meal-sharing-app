@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a full-stack web application built with Express.js, React, and PostgreSQL.
+This is a full-stack web application built with Typescript, Express.js, React, and PostgreSQL.
 
 It was created as an individual project task for [Hack Your Future](https://github.com/HackYourFuture-CPH) Denmark's curriculum.
 
