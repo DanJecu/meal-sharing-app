@@ -24,6 +24,7 @@ type Meal = {
     title: string;
     description: string;
     price: number;
+    max_reservations: number;
 };
 
 type MealsState = {

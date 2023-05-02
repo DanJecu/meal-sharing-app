@@ -8,6 +8,7 @@ export interface MealProps {
     title: string;
     description: string;
     price: number;
+    max_reservations: number;
 }
 
 const Meal: React.FC<MealProps> = ({ id, title, description, price }) => {
