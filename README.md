@@ -40,3 +40,4 @@ Overall, this project was a great learning experience for me and helped me grow 
 -   PostgreSQL
 -   React
 -   CSS Modules
+
