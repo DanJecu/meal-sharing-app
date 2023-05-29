@@ -18,10 +18,13 @@ The main functionalities of this website are:
 -   Leaving a review
 -   Sorting meals
 
-## Screenshots
+## Technologies Used
 
-![](https://github.com/danJecu/meal-sharing-app/blob/main/screenMeals.png)
-![](https://github.com/danJecu/meal-sharing-app/blob/main/screenReviews.png)
+-   Express.js
+-   KnexJS
+-   PostgreSQL
+-   React
+-   CSS Modules
 
 ## What I Learned
 
@@ -33,11 +36,9 @@ In addition to these technical skills, I also learned how to manage my time effe
 
 Overall, this project was a great learning experience for me and helped me grow as a developer.
 
-## Technologies Used
+## Screenshots
 
--   Express.js
--   KnexJS
--   PostgreSQL
--   React
--   CSS Modules
+![](https://github.com/danJecu/meal-sharing-app/blob/main/screenMeals.png)
+![](https://github.com/danJecu/meal-sharing-app/blob/main/screenReviews.png)
+
 
