@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MealsContext } from '../contexts/MealsContext';
-import styles from '../styles/pages/ReservationPage.module.css';
+import { MealsContext } from '../../contexts/MealsContext';
+import styles from './ReservationPage.module.css';
 
 // Components
-import Meal from '../components/Meal';
-import FormReservation from '../components/FormReservation';
-import { Loading } from '../components/Loading';
+import Meal from '../../components/Meal/Meal';
+import FormReservation from '../../components/FormReservation/FormReservation';
+import { Loading } from '../../components/Loading/Loading';
 
 const ReservationPage: React.FC = () => {
     const { mealId } = useParams<{ mealId: string }>();

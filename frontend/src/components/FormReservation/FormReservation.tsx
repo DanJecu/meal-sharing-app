@@ -1,14 +1,14 @@
 import React, { useState, useContext, useEffect, useMemo } from 'react';
-import { MealsContext } from '../contexts/MealsContext';
+import { MealsContext } from '../../contexts/MealsContext';
 import {
     renderReservations,
     calculateReservations,
-} from '../../utils/calculateReservations';
-import styles from '../styles/components/FormReservation.module.css';
+} from '../../../utils/calculateReservations';
+import styles from './FormReservation.module.css';
 
 // Components
-import Button from './Button';
-import Modal from './Modal';
+import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
 
 interface Reservation {
     number_of_guests: number;

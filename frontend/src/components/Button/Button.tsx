@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/components/Button.module.css';
+import styles from './Button.module.css';
 
 interface ButtonProps {
     text?: string;

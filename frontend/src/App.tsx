@@ -4,11 +4,11 @@ import {
     RouteObject,
 } from 'react-router-dom';
 import { Layout } from './pages/Layout';
-import { Home } from './pages/HomePage';
-import ReservationPage from './pages/ReservationPage';
-import MealsPage from './pages/MealsPage';
+import { Home } from './pages/HomePage/HomePage';
+import ReservationPage from './pages/ReservationPage/ReservationPage';
+import MealsPage from './pages/MealsPage/MealsPage';
 import NotFoundPage from './pages/NotFoundPage';
-import ReviewPage from './pages/ReviewPage';
+import ReviewPage from './pages/ReviewPage/ReviewPage';
 import { MealsProvider } from './contexts/MealsContext';
 
 const routes: RouteObject[] = [

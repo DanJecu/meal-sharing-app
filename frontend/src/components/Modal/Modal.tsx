@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { MealsContext } from '../contexts/MealsContext';
-import styles from '../styles/components/Modal.module.css';
+import { MealsContext } from '../../contexts/MealsContext';
+import styles from './Modal.module.css';
 
 interface ModalProps {
     text: string;

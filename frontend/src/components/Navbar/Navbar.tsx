@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { TiThMenu } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 
-import styles from '../styles/components/Navbar.module.css';
+import styles from './Navbar.module.css';
 
 export const Navbar: React.FC = () => {
     const isMobile = useMediaQuery({ maxWidth: 768 });
