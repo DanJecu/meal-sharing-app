@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MealsContext } from '../contexts/MealsContext';
+import { MealsContext } from '../../contexts/MealsContext';
 
-import Button from '../components/Button';
-import Modal from '../components/Modal';
-import Star from '../components/Star';
+import Button from '../../components/Button/Button';
+import Modal from '../../components/Modal/Modal';
+import Star from '../../components/Star/Star';
 
-import styles from '../styles/pages/ReviewPage.module.css';
+import styles from './ReviewPage.module.css';
 
 export default function ReviewPage() {
     const navigate = useNavigate();

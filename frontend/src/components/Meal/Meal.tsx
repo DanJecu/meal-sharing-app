@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { renderStarList } from './Star';
-import styles from '../styles/components/Meal.module.css';
+import { renderStarList } from '../Star/Star';
+import styles from './Meal.module.css';
 
 export interface MealProps {
     id: number;

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/pages/MealsPage.module.css';
-import MealsList from '../components/MealsList';
-import Search from '../components/Search';
+import styles from './MealsPage.module.css';
+import MealsList from '../../components/MealsList/MealsList';
+import Search from '../../components/Search/Search';
 
 const MealsPage: React.FC = () => {
     return (

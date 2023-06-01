@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { MealsContext } from '../contexts/MealsContext';
-import styles from '../styles/components/MealsList.module.css';
+import { MealsContext } from '../../contexts/MealsContext';
+import styles from './MealsList.module.css';
 
 // Components
-import Meal, { MealProps } from './Meal';
-import { Loading } from './Loading';
+import Meal, { MealProps } from '../Meal/Meal';
+import { Loading } from '../Loading/Loading';
 
 const MealsList: React.FC = () => {
     const { meals, isLoading } = useContext(MealsContext);

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components/Star.module.css';
+import styles from './Star.module.css';
 
 interface StarProps {
     yellow: boolean;

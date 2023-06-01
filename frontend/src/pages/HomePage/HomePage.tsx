@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from '../components/Button';
+import Button from '../../components/Button/Button';
 
-import styles from '../styles/pages/HomePage.module.css';
+import styles from './HomePage.module.css';
 
 export const Home: React.FC = () => {
     return (

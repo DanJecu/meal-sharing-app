@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
-import styles from '../styles/components/Search.module.css';
-import { MealsContext } from '../contexts/MealsContext';
-import searchImg from '../assets/images/search.png';
+import styles from './Search.module.css';
+import { MealsContext } from '../../contexts/MealsContext';
+import searchImg from './search.png';
 import { FaSortAmountDown, FaSortAmountUp } from 'react-icons/fa';
-import { actionTypes } from '../contexts/MealsContext';
+import { actionTypes } from '../../contexts/MealsContext';
 interface SearchProps {}
 
 const Search: React.FC<SearchProps> = () => {
