@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { TiThMenu } from 'react-icons/ti';
+import { GiHamburger } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
             {/* burger menu */}
             {isMobile && (
                 <button className={styles.btnMenu} onClick={toggleMenu}>
-                    <TiThMenu />
+                    <GiHamburger />
                 </button>
             )}
             {/*  navigation links */}
